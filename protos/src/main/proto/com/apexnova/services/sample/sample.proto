@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.apexnova.services.sample";
+option java_outer_classname = "SampleProto";
+
+package sample;
+
+// The sample definition.
+service Sample {
+  // Sends a sample request
+  rpc SendSample (SampleRequest) returns (SampleReply) {}
+}
+
+// The request message containing the user's sample.
+message SampleRequest {
+  string sample = 1;
+}
+
+// The response message containing the sample response
+message SampleReply {
+  string message = 1;
+}
