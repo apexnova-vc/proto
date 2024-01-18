@@ -1,16 +1,12 @@
-rootProject.name = "com.apexnova"
-
-// when running the assemble task, ignore the android & graalvm related subprojects
-if (startParameter.taskRequests.find { it.args.contains("assemble") } == null) {
-    include("protos", "stub", "client", "native-client", "server", "stub-android", "android")
-} else {
-    include("protos", "stub", "server")
-}
+rootProject.name = "proto"
 
 pluginManagement {
     repositories {
         gradlePluginPortal()
         google()
+
+        // for Dokka
+        maven("https://maven.pkg.jetbrains.space/public/p/kotlinx-html/maven")
     }
 }
 

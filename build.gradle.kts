@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.kotlin.jvm) apply false
     alias(libs.plugins.kotlin.android) apply false
     alias(libs.plugins.ktlint) apply false
+    alias(libs.plugins.dokka) apply false
     `java-library`
     `maven-publish`
 }
@@ -30,14 +31,8 @@ publishing {
     }
 }
 
-// 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
-
-// todo: maybe use variants / configurations to do both stub & stub-lite here
-
-// Note: We use the java-library plugin to get the protos into the artifact for this subproject
-// because there doesn't seem to be an better way.
-
 java {
+    sourceSets.getByName("main").resources.srcDir("src/main/proto")
     withJavadocJar()
     withSourcesJar()
 }
