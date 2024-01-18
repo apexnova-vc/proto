@@ -4,7 +4,6 @@ pluginManagement {
     repositories {
         gradlePluginPortal()
         google()
-
         // for Dokka
         maven("https://maven.pkg.jetbrains.space/public/p/kotlinx-html/maven")
     }

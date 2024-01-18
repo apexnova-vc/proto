@@ -10,8 +10,8 @@ plugins {
     `maven-publish`
 }
 
-group = "proto"
-version = "0.0.1"
+group = "com.apexnova"
+version = "0.0.3"
 
 publishing {
     repositories {
