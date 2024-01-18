@@ -1,7 +1,0 @@
-com.apexnova.services.stublite.stub-android-pngs-0 /Users/dongmings/Projects/apexnova-vc/proto_services/stub-android/build/generated/res/pngs/release
-com.apexnova.services.stublite.stub-android-resValues-1 /Users/dongmings/Projects/apexnova-vc/proto_services/stub-android/build/generated/res/resValues/release
-com.apexnova.services.stublite.stub-android-mergeReleaseResources-2 /Users/dongmings/Projects/apexnova-vc/proto_services/stub-android/build/intermediates/incremental/release/mergeReleaseResources/merged.dir
-com.apexnova.services.stublite.stub-android-mergeReleaseResources-3 /Users/dongmings/Projects/apexnova-vc/proto_services/stub-android/build/intermediates/incremental/release/mergeReleaseResources/stripped.dir
-com.apexnova.services.stublite.stub-android-merged_res-4 /Users/dongmings/Projects/apexnova-vc/proto_services/stub-android/build/intermediates/merged_res/release
-com.apexnova.services.stublite.stub-android-main-5 /Users/dongmings/Projects/apexnova-vc/proto_services/stub-android/src/main/res
-com.apexnova.services.stublite.stub-android-release-6 /Users/dongmings/Projects/apexnova-vc/proto_services/stub-android/src/release/res

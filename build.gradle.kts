@@ -11,14 +11,19 @@ plugins {
 
 group = "com.apexnova"
 
+val sourcesJar by tasks.registering(Jar::class) {
+    archiveClassifier.set("sources")
+    from(sourceSets.main.get().allSource)
+}
+
 publishing {
     repositories {
         maven {
             name = "GitHubPackages"
             url = uri("https://maven.pkg.github.com/apexnova-vc/proto")
             credentials {
-                username = "dongming-shen"
-                password = "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"
+                username = findProperty("gpr.user") as String? ?: System.getenv("GITHUB_USERNAME")
+                password = findProperty("gpr.key") as String? ?: System.getenv("GITHUB_TOKEN")
             }
         }
     }
@@ -27,6 +32,7 @@ publishing {
                 groupId = "com.apexnova"
                 artifactId = "protos"
                 version = "0.0.1"
+                artifact(sourcesJar)
         }
     }
 }
