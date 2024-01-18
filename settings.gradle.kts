@@ -1,4 +1,4 @@
-rootProject.name = "grpc-kotlin-examples"
+rootProject.name = "com.apexnova"
 
 // when running the assemble task, ignore the android & graalvm related subprojects
 if (startParameter.taskRequests.find { it.args.contains("assemble") } == null) {
