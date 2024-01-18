@@ -59,6 +59,8 @@ out/
 /.nb-gradle/
 
 # Bin and Build folders
+**/bin/
+**/build/
 
 # IDE and Editor directories
 .gradle/
