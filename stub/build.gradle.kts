@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.kotlin.jvm)
     alias(libs.plugins.protobuf)
+    `java-library`
 }
 
 dependencies {
@@ -17,6 +18,11 @@ dependencies {
 
 kotlin {
     jvmToolchain(21)
+}
+
+java {
+    withJavadocJar()
+    withSourcesJar()
 }
 
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().all {

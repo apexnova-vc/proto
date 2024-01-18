@@ -9,12 +9,8 @@ plugins {
     `maven-publish`
 }
 
-group = "com.apexnova"
-
-val sourcesJar by tasks.registering(Jar::class) {
-    archiveClassifier.set("sources")
-    from(sourceSets.main.get().allSource)
-}
+group = "proto"
+version = "0.0.1"
 
 publishing {
     repositories {
@@ -29,10 +25,7 @@ publishing {
     }
     publications {
         register<MavenPublication>("gpr") {
-                groupId = "com.apexnova"
-                artifactId = "protos"
-                version = "0.0.1"
-                artifact(sourcesJar)
+            from(components["java"])
         }
     }
 }
@@ -45,5 +38,6 @@ publishing {
 // because there doesn't seem to be an better way.
 
 java {
-    sourceSets.getByName("main").resources.srcDir("src/main/proto")
+    withJavadocJar()
+    withSourcesJar()
 }
