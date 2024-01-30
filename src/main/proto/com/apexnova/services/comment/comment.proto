@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package comment;
+
+option java_package = "com.apexnova.services.comment";
+option java_multiple_files = true;
+option java_outer_classname = "CommentProto";
+
+message Comment {
+  string id = 1;
+  string content = 2;
+  string authorId = 3;  // This should match a User.id
+  string articleId = 4; // This should match an Article.id
+}
