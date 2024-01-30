@@ -15,7 +15,7 @@ jobs:
         go-version: 1.21.0
 
     - name: Install protolint
-      run: go get -u github.com/yoheimuta/protolint/cmd/protolint
+      run: go install github.com/yoheimuta/protolint/cmd/protolint@latest
 
     - name: Run protolint
       run: protolint lint src/**/*.proto
