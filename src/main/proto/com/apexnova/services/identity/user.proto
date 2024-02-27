@@ -11,3 +11,68 @@ message User {
   string name = 2;
   string email = 3;
 }
+
+service UserService {
+  // Retrieves a User by its id
+  rpc GetUser(GetUserRequest) returns (User) {}
+
+  // Creates a new User
+  rpc CreateUser(CreateUserRequest) returns (User) {}
+
+  // Updates an existing User
+  rpc UpdateUser(UpdateUserRequest) returns (User) {}
+
+  // Deletes a User
+  rpc DeleteUser(DeleteUserRequest) returns (DeleteUserResponse) {}
+
+  // Server-side streaming RPC for getting multiple users
+  rpc GetUsersStream(GetUsersStreamRequest) returns (stream User) {}
+
+  // Client-side streaming RPC for creating multiple users
+  rpc CreateUsersStream(stream CreateUserRequest)
+      returns (CreateUsersStreamResponse) {}
+
+  // Server-side streaming RPC for searching users
+  rpc SearchUsersStream(SearchUsersRequest) returns (stream User) {}
+}
+
+// Request message for GetUser
+message GetUserRequest {
+  string id = 1; // id of the User to retrieve
+}
+
+// Request message for CreateUser
+message CreateUserRequest {
+  string name = 1;  // name of the User to create
+  string email = 2; // email of the User to create
+}
+
+// Request message for UpdateUser
+message UpdateUserRequest {
+  User user = 1; // User to update
+}
+
+// Request message for DeleteUser
+message DeleteUserRequest {
+  string id = 1; // id of the User to delete
+}
+
+// Response message for DeleteUser
+message DeleteUserResponse {
+  string id = 1; // id of the deleted User
+}
+
+// Request message for SearchUsers
+message SearchUsersRequest {
+  string query = 1; // search query
+}
+
+// Request message for GetUsersStream
+message GetUsersStreamRequest {
+  repeated string ids = 1; // ids of the Users to retrieve
+}
+
+// Response message for CreateUsersStream
+message CreateUsersStreamResponse {
+  repeated string ids = 1; // ids of the created Users
+}

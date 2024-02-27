@@ -6,9 +6,80 @@ option java_package = "com.apexnova.services.post";
 option java_multiple_files = true;
 option java_outer_classname = "PostProto";
 
+// Extended Post message
 message Post {
   string id = 1;
   string title = 2;
   string content = 3;
   string author_id = 4; // This should match a User.id
+  string category = 5;  // New field: category of the post
+  int64 timestamp = 6;  // New field: timestamp of the post
+}
+
+// Service definition for interaction between post service and identity service
+service PostService {
+  // Retrieves a Post by its id
+  rpc GetPost(GetPostRequest) returns (Post) {}
+
+  // Creates a new Post
+  rpc CreatePost(CreatePostRequest) returns (Post) {}
+
+  // Updates an existing Post
+  rpc UpdatePost(UpdatePostRequest) returns (Post) {}
+
+  // Deletes a Post
+  rpc DeletePost(DeletePostRequest) returns (DeletePostResponse) {}
+
+  // Server-side streaming RPC for getting multiple posts
+  rpc GetPostsStream(GetPostsStreamRequest) returns (stream Post) {}
+
+  // Client-side streaming RPC for creating multiple posts
+  rpc CreatePostsStream(stream CreatePostRequest)
+      returns (CreatePostsStreamResponse) {}
+
+  // Server-side streaming RPC for searching posts
+  rpc SearchPostsStream(SearchPostsRequest) returns (stream Post) {}
+}
+
+// Request message for GetPost
+message GetPostRequest {
+  string id = 1; // id of the Post to retrieve
+}
+
+// Request message for CreatePost
+message CreatePostRequest {
+  string title = 1;     // title of the Post to create
+  string content = 2;   // content of the Post to create
+  string author_id = 3; // author_id of the Post to create
+  string category = 4;  // category of the Post to create
+}
+
+// Request message for UpdatePost
+message UpdatePostRequest {
+  Post post = 1; // Post to update
+}
+
+// Request message for DeletePost
+message DeletePostRequest {
+  string id = 1; // id of the Post to delete
+}
+
+// Response message for DeletePost
+message DeletePostResponse {
+  string id = 1; // id of the deleted Post
+}
+
+// Request message for SearchPosts
+message SearchPostsRequest {
+  string query = 1; // search query
+}
+
+// Request message for GetPostsStream
+message GetPostsStreamRequest {
+  repeated string ids = 1; // ids of the Posts to retrieve
+}
+
+// Response message for CreatePostsStream
+message CreatePostsStreamResponse {
+  repeated string ids = 1; // ids of the created Posts
 }

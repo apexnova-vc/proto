@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package identity;
+
+option java_package = "com.apexnova.services.identity";
+option java_multiple_files = true;
+option java_outer_classname = "AuthProto";
+
+message LoginRequest {
+  string email = 1;
+  string password = 2;
+}
+
+message LoginResponse { string token = 1; }
+
+message LogoutRequest { string token = 1; }
+
+message LogoutResponse { bool success = 1; }
+
+service AuthService {
+  // User login
+  rpc Login(LoginRequest) returns (LoginResponse) {}
+
+  // User logout
+  rpc Logout(LogoutRequest) returns (LogoutResponse) {}
+
+  // Server-side streaming RPC for monitoring authentication events
+  rpc MonitorAuthEvents(MonitorAuthEventsRequest) returns (stream AuthEvent) {}
+}
+
+// Request message for MonitorAuthEvents
+message MonitorAuthEventsRequest {
+  string token = 1; // token of the User to monitor
+}
+
+// Message for an authentication event
+message AuthEvent {
+  string userId = 1;    // id of the User
+  string eventType = 2; // type of the event (e.g., "LOGIN", "LOGOUT")
+  int64 timestamp = 3;  // timestamp of the event
+}
