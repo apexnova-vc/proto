@@ -2,12 +2,12 @@
 spring-boot = "3.2.3"
 spring-dependency-management = "1.1.4"
 reactor-core = "3.6.3"
-kotlin = "1.9.22"
+kotlin = "1.9.21"
 android = "8.3.0"
 protobuf = "0.9.4" 
 ktlint = "12.0.3"
 jib = "3.4.1"
-grpc = "1.62.0"
+grpc = "1.60.0"
 grpc-kotlin = "1.4.1"
 graphql = "21.3"
 palantir-graal = "0.12.0"
@@ -15,6 +15,7 @@ androidx-compose = "1.5.4"
 dgs-codegen = "6.1.5"
 java-jwt = "4.4.0"
 dgs-extended-scalars = "8.4.0" # replace with your desired version
+protobuf-lib = "3.25.1"
 
 apexnova-proto = "+"
 
@@ -51,17 +52,17 @@ grpc-stub = { group = "io.grpc", name = "grpc-stub", version.ref = "grpc" }
 
 # grpc-kotlin
 grpc-kotlin-stub = { group = "io.grpc", name = "grpc-kotlin-stub", version.ref = "grpc-kotlin" }
-protoc-gen-grpc-kotlin = { group = "io.grpc", name = "protoc-gen-grpc-kotlin", version = "grpc-kotlin" }
+protoc-gen-grpc-kotlin = { group = "io.grpc", name = "protoc-gen-grpc-kotlin", version.ref = "grpc-kotlin" }
 
 # apexnova
 apexnova-proto = { group = "com.apexnova", name = "proto", version.ref = "apexnova-proto" }
 apexnova-stub = { group = "com.apexnova", name = "stub", version.ref = "apexnova-proto" }
 
 # protobuf
-protoc = { group = "com.google.protobuf", name = "protoc", version = "3.25.1" }
-protobuf-kotlin = { group = "com.google.protobuf", name = "protobuf-kotlin", version = "3.25.1" }
-protobuf-kotlin-lite = { group = "com.google.protobuf", name = "protobuf-kotlin-lite", version = "3.25.1" }
-protobuf-java-util = { group = "com.google.protobuf", name = "protobuf-java-util", version = "3.25.1" }
+protoc = { group = "com.google.protobuf", name = "protoc", version.ref = "protobuf-lib" }
+protobuf-kotlin = { group = "com.google.protobuf", name = "protobuf-kotlin", version.ref = "protobuf-lib" }
+protobuf-kotlin-lite = { group = "com.google.protobuf", name = "protobuf-kotlin-lite", version.ref= "protobuf-lib" }
+protobuf-java-util = { group = "com.google.protobuf", name = "protobuf-java-util", version.ref = "protobuf-lib" }
 protoc-gen-grpc-java = { group = "io.grpc", name = "protoc-gen-grpc-java", version.ref = "grpc" }
 
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version = "1.8.2" }
