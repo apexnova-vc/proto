@@ -35,7 +35,7 @@ message MonitorAuthEventsRequest {
 
 // Message for an authentication event
 message AuthEvent {
-  string userId = 1;    // id of the User
-  string eventType = 2; // type of the event (e.g., "LOGIN", "LOGOUT")
-  int64 timestamp = 3;  // timestamp of the event
+  string user_id = 1;    // id of the User
+  string event_type = 2; // type of the event (e.g., "LOGIN", "LOGOUT")
+  int64 timestamp = 3;   // timestamp of the event
 }
