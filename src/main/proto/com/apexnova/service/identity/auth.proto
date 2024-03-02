@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package identity;
 
-option java_package = "com.apexnova.services.identity";
+option java_package = "com.apexnova.service.identity";
 option java_multiple_files = true;
 option java_outer_classname = "AuthProto";
 

@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package post;
 
-option java_package = "com.apexnova.services.post";
+option java_package = "com.apexnova.service.post";
 option java_multiple_files = true;
 option java_outer_classname = "PostProto";
 
