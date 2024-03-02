@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "com.apexnova"
-version = findProperty("version") as String? ?: "0.0.1-SNAPSHOT"
+version = findProperty("version") as String ?? "0.0.1-SNAPSHOT"
 
 // Only publish from github action
 publishing {
