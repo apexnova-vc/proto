@@ -39,8 +39,7 @@ jobs:
         distribution: 'adopt'
 
     - name: Set version
-      run:
-          printf "\nversion=${GITHUB_SHA::7}" >> gradle.properties
+      run: echo "version=$(git rev-list --count HEAD)" >> gradle.properties
 
     - name: Publish package
       run: ./gradlew publish
