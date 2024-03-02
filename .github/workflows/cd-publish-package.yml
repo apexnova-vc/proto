@@ -42,7 +42,7 @@ jobs:
         distribution: 'adopt'
 
     - name: Set version
-      run: printf "\nversion=0.0.$(git rev-list --count HEAD)" >> gradle.properties
+      run: printf "\nversion=$(git rev-list --count HEAD)" >> gradle.properties
 
     - name: Publish package
       run: ./gradlew publish
