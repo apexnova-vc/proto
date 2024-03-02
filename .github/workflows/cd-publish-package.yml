@@ -28,6 +28,9 @@ jobs:
   publish:
     needs: build_and_test
     runs-on: ubuntu-latest
+    env:
+      GITHUB_USERNAME: ${{ github.actor }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
     - uses: actions/checkout@v4
@@ -43,6 +46,3 @@ jobs:
 
     - name: Publish package
       run: ./gradlew publish
-      env:
-        GITHUB_USERNAME: ${{ github.actor }}
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -25,4 +25,6 @@ jobs:
       run: go install github.com/yoheimuta/protolint/cmd/protolint@latest
 
     - name: Run protolint
-      run: protolint lint src/**/*.proto
+      run: |
+        shopt -s globstar
+        protolint lint src/**/*.proto
