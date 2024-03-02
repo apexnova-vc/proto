@@ -23,19 +23,4 @@ service AuthService {
 
   // User logout
   rpc Logout(LogoutRequest) returns (LogoutResponse) {}
-
-  // Server-side streaming RPC for monitoring authentication events
-  rpc MonitorAuthEvents(MonitorAuthEventsRequest) returns (stream AuthEvent) {}
-}
-
-// Request message for MonitorAuthEvents
-message MonitorAuthEventsRequest {
-  string token = 1; // token of the User to monitor
-}
-
-// Message for an authentication event
-message AuthEvent {
-  string user_id = 1;    // id of the User
-  string event_type = 2; // type of the event (e.g., "LOGIN", "LOGOUT")
-  int64 timestamp = 3;   // timestamp of the event
 }
