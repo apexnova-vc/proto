@@ -12,11 +12,7 @@ service Sample {
 }
 
 // The request message containing the user's sample.
-message SampleRequest {
-  string sample = 1;
-}
+message SampleRequest { string sample = 1; }
 
 // The response message containing the sample response
-message SampleReply {
-  string message = 1;
-}
+message SampleReply { string message = 1; }
